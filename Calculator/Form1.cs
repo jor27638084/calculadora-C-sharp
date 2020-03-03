@@ -132,7 +132,7 @@ namespace Calculator
         {
             if (validar == true)
             {
-                a = a + Convert.ToInt32(text_valor.Text);
+                a = a / Convert.ToInt32(text_valor.Text);
                 label1.Text = Convert.ToString(a) + " / ";
                 text_valor.Text = "";
                 operador = "/";
@@ -151,7 +151,7 @@ namespace Calculator
         {
             if (validar == true)
             {
-                a = a + Convert.ToInt32(text_valor.Text);
+                a = a * Convert.ToInt32(text_valor.Text);
                 label1.Text = Convert.ToString(a) + " * ";
                 text_valor.Text = "";
                 operador = "*";
