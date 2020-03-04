@@ -12,7 +12,7 @@ namespace Calculator
 {
     public partial class Form1 : Form
     {
-        string operador;
+        string operador = "";
         int a = 0;
         bool validar = false;
         public Form1()
@@ -92,76 +92,76 @@ namespace Calculator
 
         private void btn_adicao_Click(object sender, EventArgs e)
         {
-            if(validar == true)
+            if(operador == "")
             {
-                a = a + Convert.ToInt32(text_valor.Text);
+                a =  Convert.ToInt32(text_valor.Text);
                 label1.Text = Convert.ToString(a) + " + ";
                 text_valor.Text = "";
                 operador = "+";
             }
             else
             {
-                label1.Text = text_valor.Text + btn_adicao.Text;
-                a = Convert.ToInt32(text_valor.Text);
+                a += Convert.ToInt32(text_valor.Text);
+                label1.Text = Convert.ToString(a) + " + ";
                 text_valor.Text = "";
                 operador = "+";
-                validar = true;
             }
         }
 
         private void btn_subtracao_Click(object sender, EventArgs e)
         {
-            if (validar == true)
+            
+
+            if(operador == "")
             {
-                a = a - Convert.ToInt32(text_valor.Text);
+                a = Convert.ToInt32(text_valor.Text);
                 label1.Text = Convert.ToString(a) + " - ";
                 text_valor.Text = "";
                 operador = "-";
             }
             else
             {
-                label1.Text = text_valor.Text + btn_subtracao.Text;
+                a -= Convert.ToInt32(text_valor.Text);
+                label1.Text = Convert.ToString(a) + " - ";
                 text_valor.Text = "";
                 operador = "-";
-                validar = true;
-
             }
         }
 
         private void btn_divisao_Click(object sender, EventArgs e)
         {
-            if (validar == true)
+          
+            if (operador == "")
             {
-                a = a / Convert.ToInt32(text_valor.Text);
+                a = Convert.ToInt32(text_valor.Text);
                 label1.Text = Convert.ToString(a) + " / ";
                 text_valor.Text = "";
                 operador = "/";
             }
             else
             {
-                label1.Text = text_valor.Text + btn_divisao.Text;
+                a /= Convert.ToInt32(text_valor.Text);
+                label1.Text = Convert.ToString(a) + " / ";
                 text_valor.Text = "";
                 operador = "/";
-                validar = true;
-
             }
         }
 
         private void btn_multiplicacao_Click(object sender, EventArgs e)
         {
-            if (validar == true)
+            if (operador == "")
             {
-                a = a * Convert.ToInt32(text_valor.Text);
+                a = Convert.ToInt32(text_valor.Text);
                 label1.Text = Convert.ToString(a) + " * ";
                 text_valor.Text = "";
                 operador = "*";
             }
             else
             {
-                label1.Text = text_valor.Text + btn_multiplicacao.Text;
+                a *= Convert.ToInt32(text_valor.Text);
+                label1.Text = Convert.ToString(a) + " * ";
                 text_valor.Text = "";
                 operador = "*";
-                validar = true;
 
             }
         }
@@ -188,6 +188,8 @@ namespace Calculator
                 label1.Text = label1.Text + text_valor.Text + "=";
                 text_valor.Text = Convert.ToString(a * Convert.ToInt32(text_valor.Text));
             }
+
+            operador = "";
         }
     }
 }
